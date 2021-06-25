@@ -37,10 +37,13 @@ const contentStyles = {
     bottom: 'unset',
     right: 'unset',
     left: 'unset',
-    width: '35vw',
-    height: '40vh',
+    width: '500px',
+    maxWidth: '90vw',
+    height: '400px',
     borderRadius: '8px'
 }
+
+ReactModal.setAppElement('#root')
 
 export const AdminRoom = () => {
     const { id: roomId } = useParams<RoomParams>()
@@ -52,14 +55,17 @@ export const AdminRoom = () => {
     useEffect(() => {
         if(rcid !== '') {
             if(rcid !== user?.id) {
-                toast.error("You don't have permission to enter as an admin in this room.", {
-                    position: "top-center",
+                toast.error("You don't have permission to enter as admin in this room.", {
+                    position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
                     draggable: true,
                     progress: undefined,
+                    className: 'toastClassName',
+                    bodyClassName: 'toastBodyClassName',
+                    progressClassName: 'toastProgressClassName'
                 });
                 history.push(`/rooms/${roomId}`)
             }

@@ -34,26 +34,32 @@ export const Home = () => {
 
         if(!roomRef.exists()) {
             toast.error("Room doesn't exist.", {
-                position: "top-center",
+                position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
+                className: 'toastClassName',
+                bodyClassName: 'toastBodyClassName',
+                progressClassName: 'toastProgressClassName'
             });
             return
         }
 
         if(roomRef.val().endedAt) {
             toast.error('Room is already closed.', {
-                position: "top-center",
+                position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
+                className: 'toastClassName',
+                bodyClassName: 'toastBodyClassName',
+                progressClassName: 'toastProgressClassName'
             });
             return
         }

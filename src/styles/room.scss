@@ -2,6 +2,7 @@
     padding-bottom: 32px;
     min-height: 100vh;
     height: 100%;
+    max-width: 100vw;
 
     header {
         padding: 24px;
@@ -12,6 +13,7 @@
         max-width: 1120px;
         margin: 0 auto;
         display: flex;
+        flex: 1;
         justify-content: space-between;
         align-items: center;
 
@@ -66,6 +68,7 @@
                 box-shadow: 0 2px 12px rgba(0,0,0,0.1);
                 resize: vertical;
                 min-height: 130px;
+                max-height: 75vh;
             }
 
             .form-footer {
@@ -142,6 +145,45 @@
             }
         }
     }
+
+    @media (max-width: 900px) {
+        .content {
+            flex-direction: column;
+
+            .buttons {
+                width: 100%;
+                justify-content: space-between;
+                margin-top: 16px;
+            }
+        }
+
+        main {
+            padding: 0 24px;
+
+            form {
+                textarea {
+                    max-height: 50vh;
+                }
+            }
+        }
+    }
+
+    @media(max-width: 600px) {
+        main {
+            form {
+                .form-footer {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+        
+                    > button {
+                        width: 100%;
+                        margin-top: 16px;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .modalContent {
@@ -176,4 +218,18 @@
         gap: 8px;
         margin-top: 48px;
     }
+}
+
+.toastClassName {
+    background: #E73F5D !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.toastBodyClassName {
+    background-color: #E73F5D;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.toastProgressClassName {
+    background: hsl(349, 78%, 80%) !important;
 }

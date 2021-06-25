@@ -10,7 +10,9 @@
 
     div {
         background: #845afd;
-        padding: 12px;
+        height: 100%;
+        width: 40px;
+        flex-shrink: 0;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -20,9 +22,27 @@
         display: block;
         align-self: center;
         flex: 1;
-        padding: 0 16px 0 12px;
+        padding: 0 8px 0 6px;
         width: 240px;
         font-size: 14px;
         font-weight: 500;
     }
+
+    @media(max-width: 420px) {
+        width: 40px;
+    }
+}
+
+.toastClassName {
+    background: #845afd !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.toastBodyClassName {
+    background-color: #845afd;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+.toastProgressClassName {
+    background: hsl(255, 98%, 80%) !important;
 }

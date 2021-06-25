@@ -10,13 +10,16 @@ export const RoomCode = ({code}: RoomCodeProps) => {
     function copyRoomCodeToClipboard() {
         navigator.clipboard.writeText(code)
         toast.success('Code copied to clipboard!', {
-            position: "top-center",
+            position: "top-right",
             autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
+            className: 'toastClassName',
+            bodyClassName: 'toastBodyClassName',
+            progressClassName: 'toastProgressClassName'
         });
     }
 
@@ -25,7 +28,7 @@ export const RoomCode = ({code}: RoomCodeProps) => {
             <div>
                 <img src={CopyToClipboard} alt="Copiar código da sala para a área de transferência" />
             </div>
-            <span>Sala {code}</span>
+            <span>{code}</span>
         </button>
     )
 }

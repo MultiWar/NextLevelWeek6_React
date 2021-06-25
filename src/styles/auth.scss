@@ -133,4 +133,38 @@
             }
         }
     }
+
+    @media (max-width: 800px) {
+        flex-direction: column;
+        
+        aside {
+            padding: 48px 32px;
+        }
+
+        main {
+            padding: 32px 0;
+        }
+    }
+
+    @media(max-width: 500px) {
+        aside {
+            padding: 32px;
+
+            strong {
+                margin-top: 0;
+            }
+
+            img {
+                display: none;
+            }
+        }
+
+        main {
+            .main-content {
+                .create-room {
+                    margin-top: 32px;
+                }
+            }
+        }
+    }
 }
