@@ -7,7 +7,7 @@ import { useRoom } from '../hooks/useRoom'
 import { database } from '../services/firebase'
 import { useHistory } from 'react-router-dom'
 import ReactModal from 'react-modal'
-import { AnimateSharedLayout, motion } from 'framer-motion'
+import { AnimateSharedLayout } from 'framer-motion'
 import { UserCard } from '../components/UserCard'
 
 import Logo from '../assets/logo.svg'
@@ -64,7 +64,7 @@ export const AdminRoom = () => {
                 history.push(`/rooms/${roomId}`)
             }
         }
-    }, [rcid, user])
+    }, [rcid, user, roomId, history])
 
     async function handleDeleteQuestion(questionId: string) {
         if(window.confirm('Tem certeza que deseja excluir essa pergunta?')) {
