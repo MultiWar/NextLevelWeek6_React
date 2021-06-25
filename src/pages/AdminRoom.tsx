@@ -63,9 +63,9 @@ export const AdminRoom = () => {
                     pauseOnHover: true,
                     draggable: true,
                     progress: undefined,
-                    className: 'toastClassName',
-                    bodyClassName: 'toastBodyClassName',
-                    progressClassName: 'toastProgressClassName'
+                    className: 'toastClassNameError',
+                    bodyClassName: 'toastBodyClassNameError',
+                    progressClassName: 'toastProgressClassNameError'
                 });
                 history.push(`/rooms/${roomId}`)
             }
