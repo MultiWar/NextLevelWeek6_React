@@ -6,7 +6,8 @@ import { RoomCode } from '../components/RoomCode'
 import { useAuth } from '../hooks/useAuth'
 import { useRoom } from '../hooks/useRoom'
 import { database } from '../services/firebase'
-import { AnimateSharedLayout, motion } from 'framer-motion'
+import { AnimateSharedLayout } from 'framer-motion'
+import { UserCard } from '../components/UserCard'
 
 import Logo from '../assets/logo.svg'
 import NoQuestions from '../assets/empty-questions.svg'
@@ -21,7 +22,7 @@ type RoomParams = {
 export const Room = () => {
     const { id: roomId } = useParams<RoomParams>()
     const [newQuestion, setNewQuestion] = useState('')
-    const { user } = useAuth()
+    const { user, signInWithGoogle } = useAuth()
     const { questions, title } = useRoom(roomId)
 
 
@@ -66,7 +67,10 @@ export const Room = () => {
             <header>
                 <div className="content">
                     <img src={Logo} alt="Logo Letmeask" />
-                    <RoomCode code={roomId} />
+                    <div className='buttons'>
+                        <RoomCode code={roomId} />
+                        {user && <UserCard avatarUrl={user?.avatar} username={user?.username} />}
+                    </div>
                 </div>
             </header>
             <main>
@@ -87,7 +91,7 @@ export const Room = () => {
                                 <span>{user.username}</span>
                             </div>
                         ) : (
-                            <span>Para enviar uma pergunta, <button>faça seu login</button></span>
+                            <span>Para enviar uma pergunta, <button onClick={signInWithGoogle}>faça seu login</button></span>
                         )}
                         <Button type='submit' disabled={!user}>Enviar pergunta</Button>
                     </div>

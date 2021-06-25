@@ -8,6 +8,7 @@ import { database } from '../services/firebase'
 import { useHistory } from 'react-router-dom'
 import ReactModal from 'react-modal'
 import { AnimateSharedLayout, motion } from 'framer-motion'
+import { UserCard } from '../components/UserCard'
 
 import Logo from '../assets/logo.svg'
 import DeleteIcon from '../assets/delete.svg'
@@ -63,7 +64,7 @@ export const AdminRoom = () => {
                 history.push(`/rooms/${roomId}`)
             }
         }
-    }, [rcid])
+    }, [rcid, user])
 
     async function handleDeleteQuestion(questionId: string) {
         if(window.confirm('Tem certeza que deseja excluir essa pergunta?')) {
@@ -100,6 +101,7 @@ export const AdminRoom = () => {
                     <div className='buttons'>
                         <RoomCode code={roomId} />
                         <Button buttonType='outlined' onClick={() => setIsModalOpen(true)}>Encerrar sala</Button>
+                        {user && <UserCard avatarUrl={user.avatar} username={user.username} />}
                     </div>
                 </div>
             </header>
