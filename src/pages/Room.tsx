@@ -53,6 +53,10 @@ export const Room = () => {
     }
 
     const handleClickLikeButton = async (questionId: string, likeId: string | undefined) => {
+        if(!user) {
+            await signInWithGoogle()
+            return
+        }
         if(!!likeId) {
             await database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove()
             return

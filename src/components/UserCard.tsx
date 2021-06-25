@@ -21,7 +21,7 @@ export const UserCard = ({username, avatarUrl}: UserCardProps) => {
             </button>
             <AnimatePresence>
                 {showCard && (
-                    <motion.div className={`user-card`} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} >
+                    <motion.div className={`user-card`} initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.2}}} exit={{opacity: 0}} >
                         <img src={avatarUrl} alt={`Foto de perfil de ${username}`} />
                         <p>{username}</p>
                         <Button onClick={signOut} buttonType='danger'>Sair da conta</Button>

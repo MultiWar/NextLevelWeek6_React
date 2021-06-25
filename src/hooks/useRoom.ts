@@ -60,12 +60,30 @@ export const useRoom = (roomId: string) => {
                 else {
                     aValue = 1
                 }
+
                 if(b.isAnswered) {
                     bValue = -1
                 }
                 else {
                     bValue = 1
                 }
+                return bValue - aValue
+            }).sort((a, b) => {
+                let aValue;
+                let bValue;
+
+                if(a.isHighlighted && !a.isAnswered) {
+                    aValue = 1
+                } else {
+                    aValue = 0
+                }
+
+                if(b.isHighlighted && !b.isAnswered) {
+                    bValue = 1
+                } else {
+                    bValue = 0
+                }
+
                 return bValue - aValue
             })
 
